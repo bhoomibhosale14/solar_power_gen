@@ -53,5 +53,5 @@ df = pd.DataFrame({
 
 if st.button("Predict power generated"):
   prediction = model.predict(df)
-  st.succes(f"predicted : {prediction[0]:,.2f}")
+  st.succes(f"predicted : {prediction[0]:.2f}")
     
