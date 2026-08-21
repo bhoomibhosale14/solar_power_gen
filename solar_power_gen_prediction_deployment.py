@@ -49,9 +49,11 @@ df = pd.DataFrame({
     "Average Wind Speed (Period)": [average_wind_speed_period],
     "Average Barometric Pressure (Period)": [average_barometric_pressure_period]
     })
-
-
+   
 if st.button("Predict Power Generated"):
-  prediction = model.predict(df)
-  st.succes(f"Predict Power Generated : {prediction[0]:.2f}")
-    
+
+    prediction = model.predict(df)[0]
+
+    st.success(
+        f"Predicted Power Generated: {prediction:.2f}"
+    )
