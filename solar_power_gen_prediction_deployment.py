@@ -14,6 +14,7 @@ import joblib
 model = joblib.load("solar_power_gen_prediction.pkl")
 
 st.title("Solar Power Generation Prediction !")
+st.write("Enter the required values to predict Power Generated.")
 
 distance_to_solar_noon = st.number_input("Distance to Solar Noon")
 sky_cover = st.number_input("Sky Cover")
@@ -52,7 +53,6 @@ df = pd.DataFrame({
 
 if st.button("predict power generated"):
   prediction = model.predict(df)[0]
-
-st.success(
+  st.success(
         f"Predicted Power Generated: {prediction:.2f}"
     )
