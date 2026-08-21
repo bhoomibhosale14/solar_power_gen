@@ -16,40 +16,39 @@ model = joblib.load("solar_power_gen_prediction.pkl")
 st.title("Solar Power Generation Prediction !")
 st.write("Enter the required values to predict Power Generated.")
 
-distance_to_solar_noon = st.number_input("Distance to Solar Noon")
-sky_cover = st.number_input("Sky Cover")
-average_wind_direction_day = st.number_input("Average Wind Direction (Day)")
-first_hour_of_period = st.number_input("First Hour of Period")
-relative_humidity = st.number_input("Relative Humidity")
-average_wind_speed_day = st.number_input("Average Wind Speed (Day)")
 day_of_year = st.number_input("Day of Year")
-average_temperature_day = st.number_input("Average Temperature (Day)")
-average_barometric_pressure_period = st.number_input("Average Barometric Pressure (Period)")
-day = st.number_input("Day")
-average_wind_speed_period = st.number_input("Average Wind Speed (Period)")
-visibility = st.number_input("Visibility")
-month = st.number_input("Month")
-is_daylight = st.number_input("Is Daylight")
 year = st.number_input("Year")
-
+month = st.number_input("Month")
+day = st.number_input("Day")
+first_hour_of_period = st.number_input("First Hour of Period")
+is_daylight = st.number_input("Is Daylight")
+distance_to_solar_noon = st.number_input("Distance to Solar Noon")
+average_temperature_day = st.number_input("Average Temperature (Day)")
+average_wind_direction_day = st.number_input("Average Wind Direction (Day)")
+average_wind_speed_day = st.number_input("Average Wind Speed (Day)")
+sky_cover = st.number_input("Sky Cover")
+visibility = st.number_input("Visibility")
+relative_humidity = st.number_input("Relative Humidity")
+average_wind_speed_period = st.number_input("Average Wind Speed (Period)")
+average_barometric_pressure_period = st.number_input("Average Barometric Pressure (Period)")
 
 df = pd.DataFrame({
-    "Distance to Solar Noon": [distance_to_solar_noon],
-    "Sky Cover": [sky_cover],
-    "Average Wind Direction (Day)": [average_wind_direction_day],
-    "First Hour of Period": [first_hour_of_period],
-    "Relative Humidity": [relative_humidity],
-    "Average Wind Speed (Day)": [average_wind_speed_day],
     "Day of Year": [day_of_year],
-    "Average Temperature (Day)": [average_temperature_day],
-    "Average Barometric Pressure (Period)": [average_barometric_pressure_period],
-    "Day": [day],
-    "Average Wind Speed (Period)": [average_wind_speed_period],
-    "Visibility": [visibility],
+    "Year": [year],
     "Month": [month],
+    "Day": [day],
+    "First Hour of Period": [first_hour_of_period],
     "Is Daylight": [is_daylight],
-    "Year": [year]
-})
+    "Distance to Solar Noon": [distance_to_solar_noon],
+    "Average Temperature (Day)": [average_temperature_day],
+    "Average Wind Direction (Day)": [average_wind_direction_day],
+    "Average Wind Speed (Day)": [average_wind_speed_day],
+    "Sky Cover": [sky_cover],
+    "Visibility": [visibility],
+    "Relative Humidity": [relative_humidity],
+    "Average Wind Speed (Period)": [average_wind_speed_period],
+    "Average Barometric Pressure (Period)": [average_barometric_pressure_period]
+    })
 
 
 if st.button("Predict power generated"):
