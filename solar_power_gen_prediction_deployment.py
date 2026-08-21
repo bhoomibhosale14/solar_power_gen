@@ -51,8 +51,11 @@ df = pd.DataFrame({
     "Year": [year]
 })
 
+# Make the input columns exactly match the training columns
+df = df[model.feature_names_in_]
+
 if st.button("predict power generated"):
-  prediction = model.predict(df)[0]
-  st.success(
+    prediction = model.predict(df)[0]
+    st.success(
         f"Predicted Power Generated: {prediction:.2f}"
     )
